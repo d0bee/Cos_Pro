@@ -1,0 +1,27 @@
+# 테스트케이스 나누기
+# 나이트 이동 가능 케이스는 8개
+
+def solution(pos):
+	answer = 0
+	
+	cnt = 8
+	
+	dr = [-1,-2,-2,-1,1,2,2,1]
+	dc = [-2,-1,1,2,2,1,-1,-2]
+	
+	c = ord(pos[0])-ord('A')
+	r = ord(pos[1])-ord('1')
+	
+	for x in range(8):
+		if c+dc[x] > 7 or c+dc[x] < 0: cnt -= 1
+		elif r+dr[x] > 7 or r+dr[x] < 0: cnt -= 1
+	
+	answer = cnt
+	
+	return answer
+    
+
+pos = "A7"
+ret = solution(pos)
+
+print("solution 함수의 반환 값은", ret, "입니다.")
